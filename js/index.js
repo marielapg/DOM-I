@@ -40,3 +40,70 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// image
+let header = document.getElementById("cta-img"); 
+header.setAttribute('src', siteContent["cta"]["img-src"])
+
+let middleImg = document.getElementById("middle-img"); 
+middleImg.setAttribute('src', siteContent["main-content"]["middle-img-src"])
+
+//nav 
+let aTags = document.getElementsByTagName('a')
+Array.from(aTags).forEach((link, i) => {
+  link.textContent = siteContent["nav"][`nav-item-${i + 1}`];
+  link.style.color ="green";
+});
+
+// heading text and button 
+
+let headingText = document.getElementsByClassName("cta-text");
+headingText[0].children[0].textContent = siteContent["cta"]["h1"];
+headingText[0].children[1].textContent = siteContent ["cta"]["button"];
+
+
+// main content
+
+// let mainContent = document.getElementsByClassName("text-content");
+// mainContent[0].children[0].textContent = siteContent["main-content"]["features-h4"];
+// for (let i = 0; i < mainContent.length; i++) {
+//   for(let j = 0; j < mainContent[i].children.length; j++){
+//   mainContent[i].children[j].textContent = Object.values(siteContent["main-content"])[i];
+// }
+// }
+
+// main content
+
+let mainContent = document.getElementsByClassName("text-content");
+mainContent[0].children[0].textContent = siteContent["main-content"]["features-h4"];
+mainContent[0].children[1].textContent = siteContent["main-content"]["features-content"];
+
+mainContent[1].children[0].textContent = siteContent["main-content"]["about-h4"];
+mainContent[1].children[1].textContent = siteContent ["main-content"] ["about-content"];
+
+mainContent[2].children[0].textContent = siteContent["main-content"]["services-h4"];
+mainContent[2].children[1].textContent = siteContent["main-content"]["services-content"];
+
+mainContent[3].children[0].textContent = siteContent["main-content"]["product-h4"];
+mainContent[3].children[1].textContent = siteContent ["main-content"] ["product-content"];
+mainContent[4].children[0].textContent = siteContent["main-content"]["vision-h4"];
+mainContent[4].children[1].textContent = siteContent ["main-content"] ["vision-content"];
+console.log(mainContent);
+
+
+//contact
+const textNode = document.createTextNode("123 Way 456 Street");
+const brTag = document.createElement("br");
+const textNode2 = document.createTextNode("Somewhere, USA");
+let contactText = document.getElementsByClassName("contact");
+contactText[0].children[0].textContent = siteContent["contact"]["contact-h4"]
+contactText[0].children[1].appendChild(textNode);
+contactText[0].children[1].appendChild(brTag);
+contactText[0].children[1].appendChild(textNode2);
+contactText[0].children[2].textContent = siteContent["contact"]["phone"]
+contactText[0].children[3].textContent = siteContent["contact"]["email"]
+
+// footer
+
+let footerText = document.getElementsByTagName("footer");
+footerText[0].textContent = siteContent["footer"]["copyright"];
